@@ -36,8 +36,8 @@ Estudos de caso e testes de bibliotecas.
 
 | Categoria | Tecnologias |
 | :--- | :--- |
-| **Linguagens** | Python, JavaScript, C#, Oração |
-| **Ferramentas** | Wireshark, Git, Markdown, Água Benta |
+| **Linguagens** | JavaScript, Oração |
+| **Ferramentas** | Água Benta e Bíblia |
 
 ---
 
