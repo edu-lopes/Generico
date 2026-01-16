@@ -276,3 +276,36 @@ function inverterString(palavra) {
     return nova
 }
 console.log(inverterString('Caju'));
+
+// Calcular fatorial
+let n = 170;
+function fatorial(n) {
+    if(n == 0) {
+        return `0`
+    }
+    let ft = 1;
+    for (let i = 1; i <= n; i++) {
+        ft *= i;
+    }
+    return ft;
+}
+console.log(`Fatorial de ${n} é igual a: ${fatorial(n)}`)
+
+// Frequência de palavras
+let frase = 'Javascript, é uma linguagem de programação, diferente de java'
+function lerFrase(frase) {
+    let palavras = frase.toLowerCase().split(' ');
+    let contagem = {};
+    for (let i = 0; i < palavras.length; i++) {
+        let palavraAtual = palavras[i];
+
+        if (contagem[palavraAtual]) {
+            contagem[palavraAtual]++;
+        } else {
+            contagem[palavraAtual] = 1;
+        }
+    }
+    return contagem;
+}
+
+console.log(lerFrase(frase))
