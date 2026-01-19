@@ -177,7 +177,7 @@ console.log(`Notas dos alunos que passaram: ${aprovados.join(' | ')}`)
 function maiorMenor(n) {
     let maior = Math.max(...n)
     let menor = Math.min(...n)
-    let qtd = {maior, menor}
+    let qtd = { maior, menor }
     return qtd
 }
 console.log(maiorMenor([19, 23, 10, 6, 49]))
@@ -254,8 +254,8 @@ console.log(pegarIniciais('Eduardo Lopes Barros dos Santos'));
 function idadeMaiorMenor(idades) {
     let maiores = 0;
     let menores = 0;
-    for(let i = 0; i < idades.length; i++) {
-        if(idades[i] >= 18) {
+    for (let i = 0; i < idades.length; i++) {
+        if (idades[i] >= 18) {
             maiores++;
         }
         else {
@@ -269,8 +269,8 @@ console.log(idadeMaiorMenor([12, 26, 44, 10, 13, 18, 24, 22]))
 
 // Inversão de string
 function inverterString(palavra) {
-    let nova = '' 
-    for (let i = palavra.length -1; i >= 0; i--) {
+    let nova = ''
+    for (let i = palavra.length - 1; i >= 0; i--) {
         nova += palavra[i]
     }
     return nova
@@ -280,7 +280,7 @@ console.log(inverterString('Caju'));
 // Calcular fatorial
 let n = 170;
 function fatorial(n) {
-    if(n == 0) {
+    if (n == 0) {
         return `0`
     }
     let ft = 1;
@@ -292,7 +292,7 @@ function fatorial(n) {
 console.log(`Fatorial de ${n} é igual a: ${fatorial(n)}`)
 
 // Frequência de palavras
-let frase = 'Javascript, é uma linguagem de programação, diferente de java'
+let frase = 'Javascript é uma linguagem de programação diferente de java'
 function lerFrase(frase) {
     let palavras = frase.toLowerCase().split(' ');
     let contagem = {};
@@ -308,4 +308,20 @@ function lerFrase(frase) {
     return contagem;
 }
 
-console.log(lerFrase(frase))
+console.log(lerFrase(frase));
+
+function fibonacci(n) {
+    let sequencia = [0, 1];
+
+    if (n <= 1) return [0];
+    if (n === 2) return sequencia;
+
+    for (let i = 2; i < n; i++) {
+        let proximo = sequencia[i - 1] + sequencia[i - 2];
+        sequencia.push(proximo);
+    }
+
+    return sequencia;
+}
+
+console.log(fibonacci());
