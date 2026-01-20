@@ -307,7 +307,6 @@ function lerFrase(frase) {
     }
     return contagem;
 }
-
 console.log(lerFrase(frase));
 
 function fibonacci(n) {
@@ -323,5 +322,4 @@ function fibonacci(n) {
 
     return sequencia;
 }
-
 console.log(fibonacci());
