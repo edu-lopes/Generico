@@ -99,9 +99,9 @@ par(7)
 // Condição para ver se é triângulo
 function verificaTriangulo(a, b, c) {
     if ((a + b > c) && (b + c > a) && (a + c > b)) {
-        return true;
+        return `É um triângulo válido`;
     } else {
-        return false
+        return `Não é um triângulo válido`
     }
 }
 console.log(verificaTriangulo(12, 10, 20))
