@@ -335,4 +335,13 @@ function tabuada(n) {
     };
     return calculo;
 }
-console.log(tabuada(7))
+console.log(tabuada(7));
+
+// Método de Gauss
+function gauss(n) {
+    let resultado;
+    resultado = (n * (n + 1)) / 2;
+    return resultado;
+}
+
+console.log(`A soma dos números usando Gauss: ${gauss(10)}`)
