@@ -344,4 +344,4 @@ function gauss(n) {
     return resultado;
 }
 
-console.log(`A soma dos números usando Gauss: ${gauss(10)}`)
+console.log(`A soma dos números usando Gauss: ${gauss(10)}`);
