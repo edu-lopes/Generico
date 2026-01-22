@@ -345,3 +345,17 @@ function gauss(n) {
 }
 
 console.log(`A soma dos números usando Gauss: ${gauss(10)}`);
+
+// Filtrar números de uma lista
+function filtroNumero() {
+    listaAtual = [12, 5, 8, 130, 44];
+    listaNova = [];
+    for (let i = 0; i <= listaAtual.length; i++) {
+        if (listaAtual[i] > 10) {
+            listaNova.push(listaAtual[i])
+        }
+    }
+    return listaNova;
+}
+console.log(filtroNumero());
+
