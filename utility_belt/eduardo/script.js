@@ -392,4 +392,4 @@ function findNome(nome) {
         i++;
     }
 }
-console.log(findNome('Eduardo'))
+console.log(findNome('Eduardo'));
