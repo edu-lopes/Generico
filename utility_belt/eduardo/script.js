@@ -87,7 +87,7 @@ console.log(`x² resulta em: ${resultado.x2.toFixed(2)}`);
 
 // Cálculo o número primo
 function par(n) {
-    if (n % 2 === 0 ) {
+    if (n % 2 === 0) {
         console.log(`O número ${n} é par!`);
     }
     else {
@@ -401,3 +401,17 @@ function printTriangulo(n) {
     }
 }
 printTriangulo(10);
+
+// Função de verificar número primo
+function primo(n) {
+    if (n < 2) {
+        return console.log(`O número ${n} não é primo!`);
+    }
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            return console.log(`O número ${n} não é primo!`);
+        }
+    }
+    return console.log(`O número ${n} é primo!`)
+}
+primo(7);
