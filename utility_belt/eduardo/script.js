@@ -376,4 +376,20 @@ function mediaNota() {
     let media = nota / notas.length;
     return media;
 }
-console.log(`A média das notas resulta em: ${mediaNota()}`)
+console.log(`A média das notas resulta em: ${mediaNota()}`);
+
+// Encontrar um nome em um array
+function findNome(nome) {
+    let lista = ["Eduardo", "Lucas", "Davi", "Murilo", "Matheus", "Luis", "Gustavo"];
+    let i = 0;
+    while (true) {
+        if (lista[i] === nome) {
+            return `O nome ${nome} existe na lista`
+        }
+        if (i > lista.length) {
+            return `O nome ${nome} não existe na lista`
+        }
+        i++;
+    }
+}
+console.log(findNome('Eduardo'))
