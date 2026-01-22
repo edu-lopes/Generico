@@ -47,7 +47,7 @@ Cada pasta dentro deste repositório contém seu próprio arquivo `README.md` (o
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/nome-do-repo.git](https://github.com/seu-usuario/nome-do-repo.git)
+    git clone [https://github.com/edu-lopes/Generico.git]
     ```
 2.  **Explore as pastas:** Navegue pelos diretórios e siga as instruções locais.
 
