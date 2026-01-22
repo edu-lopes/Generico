@@ -323,3 +323,16 @@ function fibonacci(n) {
     return sequencia;
 }
 console.log(fibonacci());
+
+// Tabuada dinâmica
+function tabuada(n) {
+    let calculo = [];
+    for (let i = 1; i <= 10; i++) {
+        let numeros = {
+            [`${n} x ${i}`] : n * i
+        };
+        calculo.push(numeros)
+    };
+    return calculo;
+}
+console.log(tabuada(7))
