@@ -400,4 +400,4 @@ function printTriangulo(n) {
         console.log("*".repeat(i));
     }
 }
-printTriangulo(10)
+printTriangulo(10);
