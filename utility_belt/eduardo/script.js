@@ -86,15 +86,15 @@ console.log(`x² resulta em: ${resultado.x2.toFixed(2)}`);
 
 
 // Cálculo o número primo
-function primo(n) {
-    if (n % 2 === 0) {
-        console.log(`O número ${n} é primo!`);
+function par(n) {
+    if (n % 2 === 0 ) {
+        console.log(`O número ${n} é par!`);
     }
     else {
-        console.log(`O número ${n} não é primo`);
+        console.log(`O número ${n} é ímpar`);
     }
 }
-primo(7)
+par(7)
 
 // Condição para ver se é triângulo
 function verificaTriangulo(a, b, c) {
