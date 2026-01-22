@@ -386,7 +386,7 @@ function findNome(nome) {
         if (lista[i] === nome) {
             return `O nome ${nome} existe na lista`
         }
-        if (i > lista.length) {
+        if (i >= lista.length) {
             return `O nome ${nome} não existe na lista`
         }
         i++;
