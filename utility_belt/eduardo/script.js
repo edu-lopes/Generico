@@ -396,7 +396,7 @@ console.log(findNome('Eduardo'));
 
 // Printa um triângulo de X linhas
 function printTriangulo(n) {
-    for (let i = 0; i <= n; i++) {
+    for (let i = 1; i <= n; i++) {
         console.log("*".repeat(i));
     }
 }
