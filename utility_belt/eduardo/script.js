@@ -329,7 +329,7 @@ function tabuada(n) {
     let calculo = [];
     for (let i = 1; i <= 10; i++) {
         let numeros = {
-            [`${n} x ${i}`] : n * i
+            [`${n} x ${i}`]: n * i
         };
         calculo.push(numeros)
     };
@@ -359,3 +359,21 @@ function filtroNumero() {
 }
 console.log(filtroNumero());
 
+// Média de Notas de Alunos
+function mediaNota() {
+    let nota = 0;
+    let notas = [
+        { materia: "Matemática", nota: 10 },
+        { materia: "Filosofia", nota: 8.5 },
+        { materia: "Biologia", nota: 7 },
+        { materia: "História", nota: 9 },
+        { materia: "Educação Física", nota: 10 },
+        { materia: "Português", nota: 8 },
+    ];
+    for (let i = 0; i < notas.length; i++) {
+        nota += notas[i].nota
+    }
+    let media = nota / notas.length;
+    return media;
+}
+console.log(`A média das notas resulta em: ${mediaNota()}`)
