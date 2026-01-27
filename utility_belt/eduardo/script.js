@@ -450,3 +450,17 @@ const carrinho = [
 ];
 
 console.log(filtrarEletronicos(carrinho));
+
+// Gestor de Biblioteca
+function livrosLidos(lista) {
+    return lista
+    .filter(livro => (livro.lido === false) && (livro.autor === "J.R.R. Tolkien"))
+}
+const livros = [
+    { titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", lido: true },
+    { titulo: "O Hobbit", autor: "J.R.R. Tolkien", lido: false },
+    { titulo: "Harry Potter", autor: "J.K. Rowling", lido: true },
+    { titulo: "1984", autor: "George Orwell", lido: true },
+    { titulo: "O Silmarillion", autor: "J.R.R. Tolkien", lido: false }
+];
+console.log(livrosLidos(livros))
