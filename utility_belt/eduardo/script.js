@@ -432,5 +432,21 @@ function caixaEletronico(valor) {
 
     return resultado;
 }
-
 console.log(caixaEletronico(233));
+
+// Filtrar produtos da categoria desejada
+function filtrarEletronicos(lista) {
+    return lista
+        .filter(produto => produto.categoria === 'Eletrônicos')
+        .sort((a, b) => a.preco - b.preco);
+}
+
+const carrinho = [
+    { nome: "Camiseta", preco: 50, categoria: "Vestuário" },
+    { nome: "Mouse", preco: 120, categoria: "Eletrônicos" },
+    { nome: "Monitor", preco: 900, categoria: "Eletrônicos" },
+    { nome: "Meia", preco: 15, categoria: "Vestuário" },
+    { nome: "Teclado", preco: 200, categoria: "Eletrônicos" }
+];
+
+console.log(filtrarEletronicos(carrinho));
