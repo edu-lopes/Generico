@@ -415,3 +415,22 @@ function primo(n) {
     return console.log(`O número ${n} é primo!`)
 }
 primo(7);
+
+// Caixa Eletrônico
+function caixaEletronico(valor) {
+    const dinheiroBr = [100, 50, 20, 10, 5, 2, 1];
+    const resultado = {};
+    let valorSobra = valor;
+
+    for (let i = 0; i < dinheiroBr.length; i++) {
+        const nota = dinheiroBr[i];
+        const quantidade = Math.floor(valorSobra / nota);
+
+        resultado[`Notas de ${nota}`] = quantidade;
+        valorSobra = (valorSobra - quantidade * nota).toFixed(2);
+    }
+
+    return resultado;
+}
+
+console.log(caixaEletronico(233));
