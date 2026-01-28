@@ -628,3 +628,33 @@ const produtosLoja = [
     { nome: "Luvas", preco: 50, categoria: "Inverno" }
 ];
 console.log(descontoCategoria(produtosLoja));
+
+function catalogoFilmes(catalogo) {
+    const ficcao = catalogo
+    .filter(categoria => categoria.genero === "Ficção");
+    const formatado = ficcao
+    .map( filme => ({
+            titulo: filme.titulo.toUpperCase(),
+            duracao: filme.duracao / 60
+        })
+    )
+    const totalHoras = formatado
+    .reduce((horas, filme) => horas + filme.duracao, 0);
+
+    return {
+        infoFilme: formatado.map(f => ({
+            ...f,
+            duracao: f.duracao.toFixed(2)
+        })),
+        tempoTotal: totalHoras.toFixed(2),
+        contagem: `O catálogo possui ${ficcao.length} filmes de Ficção`
+    }
+}
+const filmes = [
+    { titulo: "A Origem", genero: "Ficção", duracao: 148 },
+    { titulo: "Paddington", genero: "Infantil", duracao: 95 },
+    { titulo: "Blade Runner 2049", genero: "Ficção", duracao: 164 },
+    { titulo: "Toy Story", genero: "Infantil", duracao: 81 },
+    { titulo: "Matrix", genero: "Ficção", duracao: 136 }
+];
+console.log(catalogoFilmes(filmes));
