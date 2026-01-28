@@ -485,3 +485,17 @@ const funcionarios = [
     { nome: "Diego", salario: 3000 }
 ];
 console.log(bonusSalario(funcionarios));
+
+// Controle de Estoque
+function gastoEstoque(lista) {
+    return lista
+        .reduce((conta, item) => {
+            return conta + (item.quantidade * item.preco)
+        }, 0)
+}
+const estoque = [
+    { item: "Teclado", preco: 100, quantidade: 5 },
+    { item: "Mouse", preco: 50, quantidade: 10 },
+    { item: "Monitor", preco: 800, quantidade: 2 }
+];
+console.log(gastoEstoque(estoque));
