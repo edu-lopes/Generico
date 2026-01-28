@@ -454,7 +454,8 @@ console.log(filtrarEletronicos(carrinho));
 // Gestor de Biblioteca
 function livrosLidos(lista) {
     return lista
-    .filter(livro => (livro.lido === false) && (livro.autor === "J.R.R. Tolkien"))
+        .filter(livro => (livro.lido === false) && (livro.autor === "J.R.R. Tolkien"))
+        .map(livro => livro.titulo);
 }
 const livros = [
     { titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", lido: true },
