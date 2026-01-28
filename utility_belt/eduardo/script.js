@@ -499,3 +499,19 @@ const estoque = [
     { item: "Monitor", preco: 800, quantidade: 2 }
 ];
 console.log(gastoEstoque(estoque));
+
+// Aprovação ou Reprovação
+function situacao(lista) {
+    return lista
+        .map(pessoa => {
+            return {
+                nome: pessoa.nome, situacao: pessoa.nota >= 7 ? "Aprovado" : "Reprovado"
+            }
+        })
+}
+const alunos = [
+    { nome: "Julia", nota: 8 },
+    { nome: "Marcos", nota: 5 },
+    { nome: "Roberto", nota: 9 }
+];
+console.log(situacao(alunos));
