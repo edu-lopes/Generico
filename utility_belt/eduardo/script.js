@@ -571,3 +571,23 @@ const frutas = [
     { nome: "Banana", quantidade: 5 }
 ];
 console.log(frutaria(frutas));
+
+// Lista de tarefas
+function listaTarefas(lista) {
+    return lista
+    .filter(tarefa => tarefa.prioridade === "alta")
+    .map( tarefa => {
+        return {
+            ...tarefa,
+            texto: tarefa.texto + "!"
+        }
+    } )
+}
+const tarefas = [
+    { texto: "Lavar a louça", prioridade: "baixa" },
+    { texto: "Estudar JavaScript", prioridade: "alta" },
+    { texto: "Fazer exercícios", prioridade: "alta" },
+    { texto: "Dormir cedo", prioridade: "baixa" }
+];
+console.log(listaTarefas(tarefas));
+
