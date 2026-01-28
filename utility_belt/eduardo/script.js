@@ -591,3 +591,17 @@ const tarefas = [
 ];
 console.log(listaTarefas(tarefas));
 
+// Fechamento do Caixa
+function vendasConcluidas(fechamento) {
+    return fechamento
+    .filter(venda => venda.status === "concluido")
+    .reduce((total, venda) => total + venda.valor, 0)
+}
+const vendas = [
+    { produto: "Arroz", valor: 30, status: "concluido" },
+    { produto: "Feijão", valor: 10, status: "cancelado" },
+    { produto: "Óleo", valor: 20, status: "concluido" },
+    { produto: "Carne", valor: 100, status: "cancelado" }
+];
+console.log(vendasConcluidas(vendas));
+
