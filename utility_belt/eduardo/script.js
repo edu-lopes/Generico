@@ -529,3 +529,15 @@ function transformarPrecos(valores) {
 }
 const precos = [10, 20, 30];
 console.log(transformarPrecos(precos));
+
+// Transformar nomes em emails
+function nomeEmail(lista) {
+    return lista.map( nome => {
+        return {
+            nome: nome,
+            email: nome.toLowerCase() + "@empresa.com"
+        }
+    })
+}
+const usuarios = ["Eduardo", "Lucas", "Maria"];
+console.log(nomeEmail(usuarios));
