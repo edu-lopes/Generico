@@ -605,3 +605,26 @@ const vendas = [
 ];
 console.log(vendasConcluidas(vendas));
 
+// Produtos de uma loja
+function descontoCategoria(catalogo) {
+    const produtosDesconto = catalogo
+    .filter(categoria => categoria.categoria === "Verão")
+    .map( produto => ({
+            ...produto,
+            preco: produto.preco * 0.9
+    }));
+    const total = produtosDesconto
+    .reduce((desconto, precoAtual) => desconto + precoAtual.preco, 0)
+
+    return {
+        itens: produtosDesconto,
+        valorTotal: total
+    }
+}
+const produtosLoja = [
+    { nome: "Biquíni", preco: 100, categoria: "Verão" },
+    { nome: "Casaco", preco: 200, categoria: "Inverno" },
+    { nome: "Prancha", preco: 500, categoria: "Verão" },
+    { nome: "Luvas", preco: 50, categoria: "Inverno" }
+];
+console.log(descontoCategoria(produtosLoja));
