@@ -541,3 +541,18 @@ function nomeEmail(lista) {
 }
 const usuarios = ["Eduardo", "Lucas", "Maria"];
 console.log(nomeEmail(usuarios));
+
+// Modificando uma parte do objeto
+function inflacao(valores) {
+    return valores.map( produto => {
+        return {
+            nome: produto.nome,
+            preco: produto.preco + 5
+        }
+    })
+}
+const produtos = [
+    { nome: "Caderno", preco: 20 },
+    { nome: "Lápis", preco: 2 }
+];
+console.log(inflacao(produtos));
