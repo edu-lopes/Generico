@@ -5,7 +5,7 @@ async function buscarMunicipios(uf) {
         return dados
             .filter(cidade => cidade.nome.startsWith('E'))
             .map(cidade => ({
-                    nome: cidade.nome,
+                    cidade: cidade.nome,
                     regiao: cidade['regiao-imediata']?.nome,
                     microregiao: cidade.microrregiao?.nome
             }));
