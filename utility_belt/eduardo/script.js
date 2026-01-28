@@ -556,3 +556,18 @@ const produtos = [
     { nome: "Lápis", preco: 2 }
 ];
 console.log(inflacao(produtos));
+
+// Chegada de mais produtos
+function frutaria(produtos) {
+    return produtos.map( fruta => {
+        return {
+            ...fruta, // Spread Operator -> Usada para facilitar quando nós temos muitas propriedades e precisamos alterar apenas o que for declarado
+            quantidade: fruta.quantidade + 20
+        }
+    })
+}
+const frutas = [
+    { nome: "Maçã", quantidade: 10 },
+    { nome: "Banana", quantidade: 5 }
+];
+console.log(frutaria(frutas));
