@@ -515,3 +515,17 @@ const alunos = [
     { nome: "Roberto", nota: 9 }
 ];
 console.log(situacao(alunos));
+
+// ======== Teste Simples de Map() ======== //
+
+// Listas de Preços
+function transformarPrecos(valores) {
+    return valores.map( numero => {
+        return {
+            valor: numero,
+            moeda: "BRL"
+        }
+    })
+}
+const precos = [10, 20, 30];
+console.log(transformarPrecos(precos));
