@@ -464,4 +464,4 @@ const livros = [
     { titulo: "1984", autor: "George Orwell", lido: true },
     { titulo: "O Silmarillion", autor: "J.R.R. Tolkien", lido: false }
 ];
-console.log(livrosLidos(livros))
+console.log(livrosLidos(livros));
