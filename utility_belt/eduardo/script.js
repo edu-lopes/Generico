@@ -465,3 +465,23 @@ const livros = [
     { titulo: "O Silmarillion", autor: "J.R.R. Tolkien", lido: false }
 ];
 console.log(livrosLidos(livros));
+
+// Bônus de Salário
+function bonusSalario(lista) {
+    return lista
+        .filter(pessoa => pessoa.salario < 2500)
+        .map(pessoa => {
+            let novoSalario = pessoa.salario * 1.1;
+            return {
+                nome: pessoa.nome,
+                salario: Number(novoSalario.toFixed(2))
+            };
+        });
+}
+const funcionarios = [
+    { nome: "Ana", salario: 2000 },
+    { nome: "Bruno", salario: 5000 },
+    { nome: "Carla", salario: 1500 },
+    { nome: "Diego", salario: 3000 }
+];
+console.log(bonusSalario(funcionarios));
