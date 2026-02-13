@@ -163,6 +163,24 @@ console.log(atualizarPrioridade(ticket, Prioridade.ALTA));
 // Usando Generics
 function retornarGenerico<apelido>(valor: apelido): apelido {
   return valor;
-}
+};
 console.log(retornarGenerico<number>(10));
 console.log(retornarGenerico<string>("String!"));
+
+// Envelopar e colocar dentro de um objeto padrão
+interface RespostaAPI<valorG> {
+  dados: valorG,
+  status: number,
+  mensagem: string
+}
+
+function criarResposta<T>(conteudo: T): RespostaAPI<T> {
+  return {
+    dados: conteudo,
+    status: 200,
+    mensagem: "Sucesso"
+  };
+}
+
+const respostaTicket = criarResposta(ticket);
+console.log(respostaTicket);
