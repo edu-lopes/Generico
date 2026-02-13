@@ -159,3 +159,10 @@ function atualizarPrioridade(ticket: TicketCompleto, novaPrioridade: Prioridade)
   return situacao
 };
 console.log(atualizarPrioridade(ticket, Prioridade.ALTA));
+
+// Usando Generics
+function retornarGenerico<apelido>(valor: apelido): apelido {
+  return valor;
+}
+console.log(retornarGenerico<number>(10));
+console.log(retornarGenerico<string>("String!"));
