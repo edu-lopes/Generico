@@ -186,3 +186,11 @@ function criarResposta<T>(conteudo: T): RespostaAPI<T> {
 
 const respostaTicket = criarResposta(ticket);
 console.log(respostaTicket);
+
+// Retornar último item do array
+function pegarUltimo<T>(lista: T[]): T {
+  return lista[lista.length - 1];
+}
+
+console.log(pegarUltimo(allTickets));
+console.log(pegarUltimo([10, 45, 11, 7]));
