@@ -1,0 +1,14 @@
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\bin\Debug\net8.0\TesteCalculadora.exe
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\bin\Debug\net8.0\TesteCalculadora.deps.json
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\bin\Debug\net8.0\TesteCalculadora.runtimeconfig.json
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\bin\Debug\net8.0\TesteCalculadora.dll
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\bin\Debug\net8.0\TesteCalculadora.pdb
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\obj\Debug\net8.0\TesteCalculadora.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\obj\Debug\net8.0\TesteCalculadora.AssemblyInfoInputs.cache
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\obj\Debug\net8.0\TesteCalculadora.AssemblyInfo.cs
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\obj\Debug\net8.0\TesteCalculadora.csproj.CoreCompileInputs.cache
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\obj\Debug\net8.0\TesteCalculadora.dll
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\obj\Debug\net8.0\refint\TesteCalculadora.dll
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\obj\Debug\net8.0\TesteCalculadora.pdb
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\obj\Debug\net8.0\TesteCalculadora.genruntimeconfig.cache
+C:\Users\Meu Computador\Downloads\teste\Calculadora\TesteCalculadora\obj\Debug\net8.0\ref\TesteCalculadora.dll
