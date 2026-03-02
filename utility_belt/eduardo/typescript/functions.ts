@@ -259,3 +259,17 @@ const totalLixeira = contarOcorrencias(allTickets, "lixeira", true);
 
 console.log(`Tickets na lixeira: ${totalArquivados}`);
 console.log(`Tickets na lixeira: ${totalLixeira}`);
+
+/* Função que encontra um item a partir de um critério */
+function buscarComCriterio<T>(
+  lista: T[],
+  criterio: (item: T) => boolean,
+): T | undefined {
+  return lista.find(criterio);
+}
+
+const ticketAntigo = buscarComCriterio(
+  allTickets,
+  (t) => t.id > 10 && t.lixeira === false,
+);
+console.log(ticketAntigo);
