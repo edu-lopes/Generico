@@ -194,3 +194,20 @@ function pegarUltimo<T>(lista: T[]): T {
 
 console.log(pegarUltimo(allTickets));
 console.log(pegarUltimo([10, 45, 11, 7]));
+
+interface Relatorio<T> {
+  itens: T[],
+  total: number
+}
+
+/* Função de relatório formatado */
+function gerarRelatorio<T>(lista: T[]): Relatorio<T> {
+  return {
+    itens: lista,
+    total: lista.length 
+  }
+}
+
+const meuRelatorio = gerarRelatorio(allTickets);
+console.log(`Total de registros: ${meuRelatorio.total}`);
+console.log(`Primeiro item: ${meuRelatorio.itens[0].titulo}`);
