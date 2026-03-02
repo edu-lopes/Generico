@@ -211,3 +211,14 @@ function gerarRelatorio<T>(lista: T[]): Relatorio<T> {
 const meuRelatorio = gerarRelatorio(allTickets);
 console.log(`Total de registros: ${meuRelatorio.total}`);
 console.log(`Primeiro item: ${meuRelatorio.itens[0].titulo}`);
+
+/* Função para retornar o primeiro e o segundo elemento da lista */
+function primeiroESegundo<T>(lista: T[]) {
+  return {
+    primeiro: lista[0],
+    segundo: lista[1]
+  }
+}
+
+const gerarPrimeiroSegundo = primeiroESegundo(allTickets);
+console.log("Primeiro e Segundo Registro:", gerarPrimeiroSegundo);
