@@ -237,3 +237,13 @@ if (ticketEncontrado) {
 } else {
   console.log("Ticket não existente");
 }
+
+/* Função que retorna um array com valores da chave passada */
+function extrairPropriedade<T, K extends keyof T>(lista: T[], chave: K) {
+  return lista.map((item) => item[chave]);
+}
+
+const todosOsTitulos = extrairPropriedade(allTickets, "titulo");
+console.log(todosOsTitulos);
+const todosOsIds = extrairPropriedade(allTickets, "id");
+console.log(todosOsIds);
