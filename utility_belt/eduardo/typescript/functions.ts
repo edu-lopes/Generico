@@ -247,3 +247,15 @@ const todosOsTitulos = extrairPropriedade(allTickets, "titulo");
 console.log(todosOsTitulos);
 const todosOsIds = extrairPropriedade(allTickets, "id");
 console.log(todosOsIds);
+
+/* Função que conta ocorrencias de um ticket */
+function contarOcorrencias<T>(lista: T[], chave: keyof T, valorAlvo: any) {
+  let itensEncontrados = lista.filter((item) => item[chave] === valorAlvo);
+  return itensEncontrados.length;
+}
+
+const totalArquivados = contarOcorrencias(allTickets, "arquivado", true);
+const totalLixeira = contarOcorrencias(allTickets, "lixeira", true);
+
+console.log(`Tickets na lixeira: ${totalArquivados}`);
+console.log(`Tickets na lixeira: ${totalLixeira}`);
