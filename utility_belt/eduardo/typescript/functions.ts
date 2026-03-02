@@ -216,9 +216,24 @@ console.log(`Primeiro item: ${meuRelatorio.itens[0].titulo}`);
 function primeiroESegundo<T>(lista: T[]) {
   return {
     primeiro: lista[0],
-    segundo: lista[1]
-  }
+    segundo: lista[1],
+  };
 }
 
 const gerarPrimeiroSegundo = primeiroESegundo(allTickets);
 console.log("Primeiro e Segundo Registro:", gerarPrimeiroSegundo);
+
+/* Função que busca um ticket passando um id */
+function buscarPorId<T extends { id: number }>(
+  lista: T[],
+  idProcurado: number,
+) {
+  return lista.find((item) => item.id === idProcurado);
+}
+
+const ticketEncontrado = buscarPorId(allTickets, 3);
+if (ticketEncontrado) {
+  console.log("Achamos o ticket:", ticketEncontrado.titulo);
+} else {
+  console.log("Ticket não existente");
+}
