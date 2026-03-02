@@ -196,16 +196,16 @@ console.log(pegarUltimo(allTickets));
 console.log(pegarUltimo([10, 45, 11, 7]));
 
 interface Relatorio<T> {
-  itens: T[],
-  total: number
+  itens: T[];
+  total: number;
 }
 
 /* Função de relatório formatado */
 function gerarRelatorio<T>(lista: T[]): Relatorio<T> {
   return {
     itens: lista,
-    total: lista.length 
-  }
+    total: lista.length,
+  };
 }
 
 const meuRelatorio = gerarRelatorio(allTickets);
