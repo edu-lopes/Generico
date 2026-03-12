@@ -520,7 +520,7 @@ console.log(situacao(alunos));
 
 // Listas de Preços
 function transformarPrecos(valores) {
-    return valores.map( numero => {
+    return valores.map(numero => {
         return {
             valor: numero,
             moeda: "BRL"
@@ -532,7 +532,7 @@ console.log(transformarPrecos(precos));
 
 // Transformar nomes em emails
 function nomeEmail(lista) {
-    return lista.map( nome => {
+    return lista.map(nome => {
         return {
             nome: nome,
             email: nome.toLowerCase() + "@empresa.com"
@@ -544,7 +544,7 @@ console.log(nomeEmail(usuarios));
 
 // Modificando uma parte do objeto
 function inflacao(valores) {
-    return valores.map( produto => {
+    return valores.map(produto => {
         return {
             nome: produto.nome,
             preco: produto.preco + 5
@@ -559,7 +559,7 @@ console.log(inflacao(produtos));
 
 // Chegada de mais produtos
 function frutaria(produtos) {
-    return produtos.map( fruta => {
+    return produtos.map(fruta => {
         return {
             ...fruta, // Spread Operator -> Usada para facilitar quando nós temos muitas propriedades e precisamos alterar apenas o que for declarado
             quantidade: fruta.quantidade + 20
@@ -575,13 +575,13 @@ console.log(frutaria(frutas));
 // Lista de tarefas
 function listaTarefas(lista) {
     return lista
-    .filter(tarefa => tarefa.prioridade === "alta")
-    .map( tarefa => {
-        return {
-            ...tarefa,
-            texto: tarefa.texto + "!"
-        }
-    } )
+        .filter(tarefa => tarefa.prioridade === "alta")
+        .map(tarefa => {
+            return {
+                ...tarefa,
+                texto: tarefa.texto + "!"
+            }
+        })
 }
 const tarefas = [
     { texto: "Lavar a louça", prioridade: "baixa" },
@@ -594,8 +594,8 @@ console.log(listaTarefas(tarefas));
 // Fechamento do Caixa
 function vendasConcluidas(fechamento) {
     return fechamento
-    .filter(venda => venda.status === "concluido")
-    .reduce((total, venda) => total + venda.valor, 0)
+        .filter(venda => venda.status === "concluido")
+        .reduce((total, venda) => total + venda.valor, 0)
 }
 const vendas = [
     { produto: "Arroz", valor: 30, status: "concluido" },
@@ -608,13 +608,13 @@ console.log(vendasConcluidas(vendas));
 // Produtos de uma loja
 function descontoCategoria(catalogo) {
     const produtosDesconto = catalogo
-    .filter(categoria => categoria.categoria === "Verão")
-    .map( produto => ({
+        .filter(categoria => categoria.categoria === "Verão")
+        .map(produto => ({
             ...produto,
             preco: produto.preco * 0.9
-    }));
+        }));
     const total = produtosDesconto
-    .reduce((desconto, precoAtual) => desconto + precoAtual.preco, 0)
+        .reduce((desconto, precoAtual) => desconto + precoAtual.preco, 0)
 
     return {
         itens: produtosDesconto,
@@ -631,15 +631,15 @@ console.log(descontoCategoria(produtosLoja));
 
 function catalogoFilmes(catalogo) {
     const ficcao = catalogo
-    .filter(categoria => categoria.genero === "Ficção");
+        .filter(categoria => categoria.genero === "Ficção");
     const formatado = ficcao
-    .map( filme => ({
+        .map(filme => ({
             titulo: filme.titulo.toUpperCase(),
             duracao: filme.duracao / 60
         })
-    )
+        )
     const totalHoras = formatado
-    .reduce((horas, filme) => horas + filme.duracao, 0);
+        .reduce((horas, filme) => horas + filme.duracao, 0);
 
     return {
         infoFilme: formatado.map(f => ({
@@ -658,3 +658,32 @@ const filmes = [
     { titulo: "Matrix", genero: "Ficção", duracao: 136 }
 ];
 console.log(catalogoFilmes(filmes));
+
+// Retornar Posts de um Usuário
+async function analisarPosts(idUsuario) {
+    try {
+        const request = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const data = await request.json();
+
+        const postsFiltrados = data.filter(post => post.userId === idUsuario);
+
+        const titulosResumidos = postsFiltrados.map(post => {
+            return post.title.slice(0, 20) + "...";
+        });
+
+        const totalCaracteresEscritos = postsFiltrados.reduce((total, post) => {
+            return total + post.body.length;
+        }, 0);
+
+        return {
+            totalDePosts: postsFiltrados.length,
+            titulosResumidos: titulosResumidos,
+            totalCaracteresEscritos: totalCaracteresEscritos
+        };
+
+    } catch (error) {
+        console.error("Não foi encontrada a informação esperada!\nErro detectado:", error.message);
+        return [];
+    }
+}
+analisarPosts(1).then(resultado => { console.log(resultado);});

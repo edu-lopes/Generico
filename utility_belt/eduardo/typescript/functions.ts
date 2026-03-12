@@ -1,0 +1,275 @@
+// Cálculo de soma dois números (inteiros ou decimais) -> Via reduce
+function soma(...n: number[]): number {
+  return n.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0);
+}
+console.log(`A soma resulta em: ${soma(7, 5, 12)}`);
+
+// Ticket Soma de Vida
+interface TicketSimplificado {
+  titulo: string;
+  tempoDeVidaEmDias: number;
+}
+
+const ticketsLancados: TicketSimplificado[] = [
+  { titulo: "Exemplo 1", tempoDeVidaEmDias: 3 },
+  { titulo: "Exemplo 2", tempoDeVidaEmDias: 1 },
+  { titulo: "Exemplo 3", tempoDeVidaEmDias: 6 },
+];
+
+function calcularTempoTotal(tickets: TicketSimplificado[]): number {
+  return tickets.reduce(
+    (acumulador, ticketAtual) => acumulador + ticketAtual.tempoDeVidaEmDias,
+    0,
+  );
+}
+console.log(calcularTempoTotal(ticketsLancados));
+
+// Filtro de Status
+interface estruturaTicket {
+  titulo: string;
+  id: number;
+  arquivado: boolean;
+  lixeira: boolean;
+}
+
+const allTickets: estruturaTicket[] = [
+  { titulo: "Erro Fatal", id: 1, arquivado: false, lixeira: true },
+  { titulo: "Pesquisa de Satisfação", id: 2, arquivado: true, lixeira: false },
+  { titulo: "Placa Queimada", id: 3, arquivado: false, lixeira: false },
+  { titulo: "Telefone Pifou", id: 4, arquivado: false, lixeira: false },
+  { titulo: "Gaveta ficou travada", id: 5, arquivado: true, lixeira: false },
+  { titulo: "Microondas não gira", id: 6, arquivado: false, lixeira: true },
+];
+
+function filtrarTicketsAtivos(tickets: estruturaTicket[]): estruturaTicket[] {
+  return tickets.filter((ticket) => !ticket.arquivado && !ticket.lixeira);
+}
+console.log(filtrarTicketsAtivos(allTickets));
+
+// Retorno de link
+function exibirLink(url?: string): string {
+  return url ?? "Link não disponível";
+}
+console.log(exibirLink(""));
+
+// Gerente de Status - Prioridades
+enum Prioridade {
+  BAIXA = "Baixa",
+  MEDIA = "Média",
+  ALTA = "Alta",
+}
+
+// Ticket Completo
+interface TicketCompleto {
+  ticketKey: number;
+  titulo: string;
+  descricao: string;
+  arquivado: boolean;
+  lixeira: boolean;
+  tempoDeVidaEmDias: number;
+  kanbanStatus: {
+    descricao: "Em andamento" | "Concluido";
+  };
+  organizacao: {
+    nome: string;
+  };
+  prioridade: Prioridade;
+  agente: {
+    usuarioKey: number;
+    nome: string;
+    email: string;
+  };
+  dataCriacao: string;
+  solicitante: {
+    usuarioKey: number;
+    nome: string;
+    email: string;
+    organizacaoPrincipal: {
+      nome: string;
+    };
+  };
+  seguidores: {
+    usuarioKey: number;
+    nome: string;
+    email: string;
+  };
+}
+
+const ticket: TicketCompleto = {
+  ticketKey: 3907,
+  titulo: "Cadastro de pendências no veículo e desagregação de motorista",
+  descricao:
+    "Gostaria de verificar se, no cadastro da placa do cavalo do motorista, é possível lançar pendências, tais como avarias, manutenções ou qualquer outro tipo de irregularidade.",
+  arquivado: false,
+  lixeira: false,
+  tempoDeVidaEmDias: 12,
+
+  kanbanStatus: {
+    descricao: "Em andamento",
+  },
+
+  organizacao: {
+    nome: "Curitiba PR - Qualidade",
+  },
+  prioridade: Prioridade.MEDIA,
+  agente: {
+    usuarioKey: 101,
+    nome: "Eduardo Lopes Barros dos Santos",
+    email: "eduardo.santos@apklog.com.br",
+  },
+
+  dataCriacao: "30-01-2026",
+
+  solicitante: {
+    usuarioKey: 22,
+    nome: "Karita Infante",
+    email: "karita.infante@apk.com.br",
+    organizacaoPrincipal: {
+      nome: "Curitiba PR - Qualidade",
+    },
+  },
+
+  seguidores: {
+    usuarioKey: 101,
+    nome: "Eduardo Lopes Barros dos Santos",
+    email: "eduardo.santos@apklog.com.br",
+  },
+};
+console.log(ticket);
+
+function gerarResumo(ticket: TicketCompleto): string {
+  const tempo =
+    ticket.tempoDeVidaEmDias > 10
+      ? "[ATENÇÃO: PRAZO CRÍTICO]"
+      : `Prazo: ${10 - ticket.tempoDeVidaEmDias} dias restantes`;
+  return `Ticket #${ticket.ticketKey} - Solicitante: ${ticket.solicitante.nome} | Status: ${ticket.kanbanStatus.descricao} \n ${tempo}`;
+}
+console.log(gerarResumo(ticket));
+
+// Gerente de Status
+function atualizarPrioridade(
+  ticket: TicketCompleto,
+  novaPrioridade: Prioridade,
+): string {
+  ticket.prioridade = novaPrioridade;
+
+  const situacao =
+    novaPrioridade === Prioridade.ALTA && ticket.tempoDeVidaEmDias > 5
+      ? "Prioridade atualizada, mas requer ação imediata!"
+      : "Prioridade atualizada";
+
+  return situacao;
+}
+console.log(atualizarPrioridade(ticket, Prioridade.ALTA));
+
+// Usando Generics
+function retornarGenerico<apelido>(valor: apelido): apelido {
+  return valor;
+}
+console.log(retornarGenerico<number>(10));
+console.log(retornarGenerico<string>("String!"));
+
+// Envelopar e colocar dentro de um objeto padrão
+interface RespostaAPI<valorG> {
+  dados: valorG;
+  status: number;
+  mensagem: string;
+}
+
+function criarResposta<T>(conteudo: T): RespostaAPI<T> {
+  return {
+    dados: conteudo,
+    status: 200,
+    mensagem: "Sucesso",
+  };
+}
+
+const respostaTicket = criarResposta(ticket);
+console.log(respostaTicket);
+
+// Retornar último item do array
+function pegarUltimo<T>(lista: T[]): T {
+  return lista[lista.length - 1];
+}
+
+console.log(pegarUltimo(allTickets));
+console.log(pegarUltimo([10, 45, 11, 7]));
+
+interface Relatorio<T> {
+  itens: T[];
+  total: number;
+}
+
+/* Função de relatório formatado */
+function gerarRelatorio<T>(lista: T[]): Relatorio<T> {
+  return {
+    itens: lista,
+    total: lista.length,
+  };
+}
+
+const meuRelatorio = gerarRelatorio(allTickets);
+console.log(`Total de registros: ${meuRelatorio.total}`);
+console.log(`Primeiro item: ${meuRelatorio.itens[0].titulo}`);
+
+/* Função para retornar o primeiro e o segundo elemento da lista */
+function primeiroESegundo<T>(lista: T[]) {
+  return {
+    primeiro: lista[0],
+    segundo: lista[1],
+  };
+}
+
+const gerarPrimeiroSegundo = primeiroESegundo(allTickets);
+console.log("Primeiro e Segundo Registro:", gerarPrimeiroSegundo);
+
+/* Função que busca um ticket passando um id */
+function buscarPorId<T extends { id: number }>(
+  lista: T[],
+  idProcurado: number,
+) {
+  return lista.find((item) => item.id === idProcurado);
+}
+
+const ticketEncontrado = buscarPorId(allTickets, 3);
+if (ticketEncontrado) {
+  console.log("Achamos o ticket:", ticketEncontrado.titulo);
+} else {
+  console.log("Ticket não existente");
+}
+
+/* Função que retorna um array com valores da chave passada */
+function extrairPropriedade<T, K extends keyof T>(lista: T[], chave: K) {
+  return lista.map((item) => item[chave]);
+}
+
+const todosOsTitulos = extrairPropriedade(allTickets, "titulo");
+console.log(todosOsTitulos);
+const todosOsIds = extrairPropriedade(allTickets, "id");
+console.log(todosOsIds);
+
+/* Função que conta ocorrencias de um ticket */
+function contarOcorrencias<T>(lista: T[], chave: keyof T, valorAlvo: any) {
+  let itensEncontrados = lista.filter((item) => item[chave] === valorAlvo);
+  return itensEncontrados.length;
+}
+
+const totalArquivados = contarOcorrencias(allTickets, "arquivado", true);
+const totalLixeira = contarOcorrencias(allTickets, "lixeira", true);
+
+console.log(`Tickets na lixeira: ${totalArquivados}`);
+console.log(`Tickets na lixeira: ${totalLixeira}`);
+
+/* Função que encontra um item a partir de um critério */
+function buscarComCriterio<T>(
+  lista: T[],
+  criterio: (item: T) => boolean,
+): T | undefined {
+  return lista.find(criterio);
+}
+
+const ticketAntigo = buscarComCriterio(
+  allTickets,
+  (t) => t.id > 10 && t.lixeira === false,
+);
+console.log(ticketAntigo);
