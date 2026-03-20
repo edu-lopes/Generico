@@ -273,3 +273,30 @@ const ticketAntigo = buscarComCriterio(
   (t) => t.id > 10 && t.lixeira === false,
 );
 console.log(ticketAntigo);
+
+interface Agente {
+  id: number;
+  nome: string;
+  email: string;
+  ativo: boolean;
+}
+
+const agenteInfo: Agente = {
+  id: 101,
+  nome: "Eduardo Santos",
+  email: "eduardolbs07@gmail.com",
+  ativo: true,
+};
+
+function desativarAgente(agente: Agente): Agente {
+  return {
+    ...agente,
+    nome: "Eduardo Lopes",
+    ativo: false,
+  };
+}
+
+const agenteInativo = desativarAgente(agenteInfo);
+
+console.log("Original:", agenteInfo);
+console.log("Novo Objeto:", agenteInativo);
