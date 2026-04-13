@@ -8,12 +8,12 @@ const buscarFotoNasa = async (data) => {
         link: info.url
     };
 };
-buscarFotoNasa('2023-12-25').then(res => console.log(res));
+buscarFotoNasa('2006-06-29').then(res => console.log(res));
 
 // Método --> Função dentro de objeto
 const explorador = {
     nome: "Eduardo",
-    dataDescoberta: "2024-01-01",
+    dataDescoberta: "2006-06-29",
 
     apresentarDescoberta: async function() {
         console.log(`Olá, eu sou o ${this.nome} e vou buscar a foto de ${this.dataDescoberta}...`);
